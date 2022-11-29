@@ -1,0 +1,99 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.section-about {
+  margin-top: -15vh;
+  padding: 25rem 0;
+  background-color: $grey-ll;
+  @include responsive(1200) {
+    padding: 20rem 0 25rem;
+  }
+}
+
+.section-features {
+  margin-top: -11rem;
+  padding: $space160 0;
+  background: linear-gradient(
+      to right bottom,
+      rgba($color-pl, 0.8),
+      rgba($color-pd, 0.8)
+    ),
+    url("../img/nat-4.jpg") center/cover;
+  transform: skewY(-7deg);
+  & > * {
+    transform: skewY(7deg);
+  }
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-pl, 0.8),
+        rgba($color-pd, 0.8)
+      ),
+      url("../img/nat-4-large.jpg");
+  }
+  @include responsive(800) {
+    padding: $space128 0;
+  }
+}
+
+.section-tours {
+  margin-top: -11rem;
+  padding: 25rem 0;
+  background-color: $grey-ll;
+  @include responsive(1200) {
+    padding: 25rem 0 15rem;
+  }
+}
+
+.section-story {
+  padding: $space160 0;
+  position: relative;
+  @include responsive(800) {
+    padding: $space128 0;
+  }
+}
+
+.section-booking {
+  padding: $space160 0;
+  background-image: linear-gradient(to right bottom, $color-pl, $color-pd);
+  @include responsive(800) {
+    padding: $space128 0;
+  }
+  .booking {
+    max-width: 75%;
+    margin: 0 auto;
+    padding: $space64;
+    background: linear-gradient(
+        105deg,
+        rgba($grey-ll, 0.9) 0%,
+        rgba($grey-ll, 0.9) 50%,
+        transparent 50%
+      ),
+      url("../img/nat-10.jpg") center/cover;
+    @include responsive(1000) {
+      background: linear-gradient(
+          105deg,
+          rgba($grey-ll, 0.9) 0%,
+          rgba($grey-ll, 0.9) 70%,
+          transparent 70%
+        ),
+        url("../img/nat-10.jpg") center/cover;
+      padding: $space48;
+    }
+    @include responsive(600) {
+      background: linear-gradient(
+          105deg,
+          rgba($grey-ll, 0.9) 0%,
+          rgba($grey-ll, 0.9) 100%,
+          transparent 100%
+        ),
+        url("../img/nat-10.jpg") center/cover;
+      padding: $space48;
+    }
+  }
+}

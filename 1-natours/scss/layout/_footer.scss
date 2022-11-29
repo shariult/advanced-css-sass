@@ -1,0 +1,66 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.footer {
+  padding: $space160 0;
+  background-color: $grey-dd;
+  color: $grey-ll;
+  @include responsive(800) {
+    padding: $space128 0;
+  }
+  &__logo-box {
+    text-align: center;
+  }
+  &__logo {
+    display: inline-block;
+    width: 16rem;
+  }
+  &__nav-list {
+    display: inline-block;
+    border-top: 1px solid $grey-ll;
+    list-style: none;
+    @include responsive(800) {
+      display: block;
+      max-width: 60rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  &__nav-item {
+    display: inline-block;
+    @include responsive(800) {
+      display: block;
+    }
+  }
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      display: inline-block;
+      padding: $space12 $space4;
+      background-color: $grey-dd;
+      color: inherit;
+      font-size: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: $transition-s;
+    }
+    &:hover {
+      color: $color-pr;
+      transform: scale(1.1) translateY(-1rem) rotate(7deg);
+      box-shadow: $shadow-l;
+    }
+  }
+  &__text-box {
+    border-top: 1px solid $grey-ll;
+    line-height: 1;
+    @include responsive(800) {
+      max-width: 60rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.header {
+  height: 95vh;
+  background: linear-gradient(
+      to right bottom,
+      rgba($color-pl, 0.8),
+      rgba($color-pd, 0.8)
+    ),
+    url("../img/hero-small.jpg") top/cover;
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  position: relative;
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-pl, 0.8),
+        rgba($color-pd, 0.8)
+      ),
+      url("../img/hero.jpg");
+  }
+  &__logo-box {
+    position: absolute;
+    top: $space48;
+    left: $space48;
+  }
+  &__logo {
+    height: $size36;
+  }
+  &__text-box {
+    margin-top: -10vh;
+    text-align: center;
+    @include positionCenter;
+  }
+}

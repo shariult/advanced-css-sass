@@ -1,0 +1,46 @@
+/*
+Theme Name: Natours Template
+Theme URI: https://shariul.com/natours
+Description: A description about the theme
+Author: Md. Shariul Islam
+Author URI: https://www.shariul.com
+Version: 1.0
+Tags: responsive, columns, custom menu, etc.
+*/
+
+// ======= Vendor ======= //
+
+@use "vendor/vendor";
+
+// ======= Base ======= //
+
+@use "base/base";
+@use "base/animation";
+@use "base/typography";
+@use "base/utilities";
+
+// ======= Layout ======= //
+
+@use "layout/grid";
+@use "layout/navigation";
+@use "layout/header";
+@use "layout/footer";
+
+// ======= Components ======= //
+
+@use "components/bg-video";
+@use "components/button";
+@use "components/card";
+@use "components/composition";
+@use "components/feature-box";
+@use "components/form";
+@use "components/popup";
+@use "components/story";
+
+// ======= Pages ======= //
+
+@use "pages/home";
+
+// ======= Themes ======= //
+
+@use "themes/themes";

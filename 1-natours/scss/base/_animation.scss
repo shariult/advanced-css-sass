@@ -1,0 +1,40 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-$space96);
+  }
+  80% {
+    transform: translateX($space12);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    transform: translateX($space96);
+  }
+  80% {
+    transform: translateX(-$space12);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    transform: translateY($space48);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

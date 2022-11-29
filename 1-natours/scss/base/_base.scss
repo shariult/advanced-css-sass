@@ -1,0 +1,42 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%; // Set 1rem = 10px (10/16*100)
+  @include responsive(1320) {
+    font-size: 60%;
+  }
+  @include responsive(1200) {
+    font-size: 56%;
+  }
+  @include responsive(1000) {
+    font-size: 52%;
+  }
+  @include responsive(800) {
+    font-size: 50%;
+  }
+  @media only screen and (min-width: 125em) {
+    font-size: 65%;
+  }
+}
+body {
+  padding: $space32;
+  box-sizing: border-box;
+  @include responsive(1200) {
+    padding: 0;
+  }
+}
+::selection {
+  background-color: $color-pr;
+  color: $grey-ll;
+}

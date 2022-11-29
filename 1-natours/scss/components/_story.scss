@@ -1,0 +1,65 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.story {
+  width: 75%;
+  margin: 0 auto;
+  padding: $space64;
+  background-color: rgba($grey-ll, 0.8);
+  transform: skewX(-7deg);
+  @include responsive(800) {
+    transform: skewX(0);
+  }
+  @include responsive(600) {
+    width: 90%;
+  }
+  &__img-box {
+    width: 18rem;
+    height: 18rem;
+    clip-path: circle(50% at 50% 50%);
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    margin-right: $space32;
+    position: relative;
+    transform: skewX(7deg);
+    @include responsive(800) {
+      transform: skewX(0);
+    }
+  }
+  &__img {
+    height: 100%;
+    transform: translateX(-$space32) scale(1.25);
+    transition: $transition-m;
+  }
+  &__caption {
+    color: $grey-ll;
+    font-size: $size18;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    opacity: 0;
+    transition: $transition-m;
+  }
+  &__text-box {
+    transform: skewX(7deg);
+    @include responsive(800) {
+      transform: skewX(0);
+    }
+  }
+  &__text {
+  }
+  &:hover &__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  &:hover &__img {
+    filter: blur(3px) brightness(80%);
+    transform: translateX(-$space32) scale(1);
+  }
+}

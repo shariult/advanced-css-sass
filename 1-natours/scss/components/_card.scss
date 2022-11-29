@@ -1,0 +1,210 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+$card-height: 58rem;
+
+.card {
+  height: $card-height;
+  position: relative;
+  perspective: 150rem;
+  // Functionality
+  &__side {
+    width: 100%;
+    height: $card-height;
+    border-radius: $border-rad-s;
+    box-shadow: $shadow-l;
+    transition: $transition-l;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    &--front {
+      background-color: $white;
+    }
+    &--back {
+      transform: rotateY(180deg);
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-sl,
+          $color-sd
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-pl,
+          $color-pd
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tl,
+          $color-td
+        );
+      }
+    }
+  }
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // Front Side
+  &__img {
+    height: 24rem;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    background-blend-mode: screen;
+    &--1 {
+      background: linear-gradient(to right bottom, $color-sl, $color-sd),
+        url("../img/nat-5.jpg") center/cover;
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 125em) {
+        background: linear-gradient(to right bottom, $color-sl, $color-sd),
+          url("../img/nat-5-large.jpg") center/cover;
+      }
+    }
+    &--2 {
+      background: linear-gradient(to right bottom, $color-pl, $color-pd),
+        url("../img/nat-6.jpg") center/cover;
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 125em) {
+        background: linear-gradient(to right bottom, $color-pl, $color-pd),
+          url("../img/nat-6-large.jpg") center/cover;
+      }
+    }
+    &--3 {
+      background: linear-gradient(to right bottom, $color-tl, $color-td),
+        url("../img/nat-7.jpg") center/cover;
+      @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+        only screen and (min-width: 125em) {
+        background: linear-gradient(to right bottom, $color-tl, $color-td),
+          url("../img/nat-7-large.jpg") center/cover;
+      }
+    }
+  }
+
+  &__title {
+    width: 70%;
+    color: $grey-ll;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: $space16;
+  }
+  &__title-span {
+    padding: $space12 $space16;
+    -webkit-box-decoration-break: clone;
+    -moz-box-decoration-break: clone;
+    box-decoration-break: clone;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-sl, 0.8),
+        rgba($color-sd, 0.8)
+      );
+    }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-pl, 0.8),
+        rgba($color-pd, 0.8)
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tl, 0.8),
+        rgba($color-td, 0.8)
+      );
+    }
+  }
+  ul {
+    width: 70%;
+    margin: $space32 auto;
+    text-align: center;
+    list-style: none;
+  }
+  li {
+    padding: $space12;
+    &:not(:last-child) {
+      border-bottom: 1px solid $grey-lm;
+    }
+  }
+
+  // Back Side
+  &__cta {
+    width: 90%;
+    color: $grey-ll;
+    text-align: center;
+    @include positionCenter;
+  }
+  &__only {
+    text-transform: uppercase;
+  }
+  &__price {
+    margin-bottom: $space80;
+    font-size: $size62;
+    font-weight: 100;
+  }
+
+  // Responsive Code
+  @media only screen and (max-width: 62.5em), (hover: none) {
+    max-width: 64rem;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    perspective: initial;
+    // Functionality
+    &__side {
+      height: initial;
+      position: relative;
+      top: initial;
+      left: initial;
+      &--front {
+        padding-bottom: $space48;
+      }
+      &--back {
+        margin-top: -$space48;
+        border-radius: 0;
+        border-bottom-left-radius: $border-rad-s;
+        border-bottom-right-radius: $border-rad-s;
+        transform: initial;
+        clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%);
+      }
+    }
+    &:hover &__side--front {
+      transform: initial;
+    }
+    &:hover &__side--back {
+      transform: initial;
+    }
+
+    // Back Side
+    &__cta {
+      width: 100%;
+      padding: $space48;
+      position: relative;
+      top: initial;
+      left: initial;
+      transform: initial;
+    }
+    &__price {
+      margin-bottom: $space24;
+    }
+  }
+  @include responsive(800) {
+    max-width: 48rem;
+  }
+}

@@ -1,0 +1,55 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.composition {
+  position: relative;
+  &__img {
+    width: 52%;
+    border-radius: $border-rad-s;
+    position: absolute;
+    z-index: 9;
+    float: right;
+    outline-offset: $space12;
+    transition: $transition-s;
+    @include responsive(800) {
+      display: inline-block;
+      max-width: 33.33333%;
+      float: left;
+      position: relative;
+    }
+    &--1 {
+      top: $space12;
+      left: $space32;
+      @include responsive(800) {
+        top: initial;
+      }
+    }
+    &--2 {
+      top: $space96;
+      right: $space64;
+      @include responsive(800) {
+        top: -$space32;
+        right: initial;
+        z-index: 10;
+      }
+    }
+    &--3 {
+      top: $space160;
+      @include responsive(800) {
+        top: initial;
+        right: $space32;
+      }
+    }
+    &:hover {
+      transform: scale(1.1);
+      z-index: 10;
+      outline: $size12 solid $color-pr;
+    }
+  }
+  &:hover &__img:not(:hover) {
+    transform: scale(0.9);
+  }
+}

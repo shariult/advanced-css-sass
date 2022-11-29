@@ -1,0 +1,100 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.form {
+  &__group {
+    width: 40%;
+    margin-bottom: $space24;
+    @include responsive(1000) {
+      width: 60%;
+    }
+    @include responsive(600) {
+      width: 80%;
+    }
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    padding: $space12 $space16;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    box-shadow: $shadow-s;
+    transition: $transition-s;
+    &:focus,
+    &:active {
+      outline: none;
+      transform: translateY(-3px);
+      box-shadow: $shadow-l;
+      border-bottom: 3px solid $color-pr;
+    }
+    &:focus:invalid {
+      border-bottom: 3px solid $color-sd;
+    }
+    &::placeholder {
+      color: $grey-dl;
+    }
+  }
+  &__label {
+    display: inline-block;
+    margin-left: $space16;
+    font-size: $size16;
+    font-weight: 700;
+    transition: $transition-s;
+  }
+  &__input:placeholder-shown + &__label {
+    transform: translateY(-$space48);
+    opacity: 0;
+  }
+  &__btn {
+    font-size: inherit;
+  }
+  &__radio-group {
+    display: inline-block;
+    width: 49%;
+    position: relative;
+    @include responsive(800) {
+      display: block;
+      margin-bottom: $space24;
+    }
+  }
+  &__radio-input {
+    display: none;
+  }
+  &__radio-label {
+    padding-left: $space32;
+  }
+  &__radio-icon {
+    display: inline-block;
+    width: $size24;
+    height: $size24;
+    border: 3px solid $color-pr;
+    border-radius: 50%;
+    position: absolute;
+    top: 0.4rem;
+    left: 0;
+    &::after {
+      content: "";
+      display: inline-block;
+      width: $size14;
+      height: $size14;
+      background-color: $color-pr;
+      border-radius: 50%;
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition-s;
+      @include positionCenter;
+    }
+  }
+  &__radio-input:checked + &__radio-label &__radio-icon::after {
+    opacity: 1;
+    visibility: visible;
+  }
+}

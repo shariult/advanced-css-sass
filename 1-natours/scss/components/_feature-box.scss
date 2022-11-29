@@ -1,0 +1,34 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+.feature-box {
+  padding: $space32 $space16;
+  background-color: rgba($grey-ll, 0.8);
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: $shadow-m;
+  transition: $transition-s;
+  @include responsive(1000) {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: $space32 $space24;
+  }
+  &__icon {
+    display: inline-block;
+    margin-bottom: $space8;
+    background-image: linear-gradient(to right, $color-pl, $color-pd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: $size62;
+  }
+  &__title {
+  }
+  &__text {
+  }
+  &:hover {
+    transform: translateY(-8px) scale(1.05);
+  }
+}

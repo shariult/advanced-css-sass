@@ -1,0 +1,145 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.navbar {
+  &__checkbox {
+    display: none;
+  }
+  &__toggle {
+    display: inline-block;
+    width: 7rem;
+    height: 7rem;
+    background-color: $grey-lm;
+    border-radius: 50%;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    z-index: 24;
+    cursor: pointer;
+    box-shadow: $shadow-s;
+    @include responsive(1200) {
+      top: 4rem;
+      right: 4rem;
+    }
+  }
+  &__icon {
+    top: 3.4rem;
+    left: 1.8rem;
+    &::before,
+    &::after {
+      content: "";
+      transition: $transition-s;
+    }
+    &,
+    &::before,
+    &::after {
+      display: block;
+      width: 3.5rem;
+      height: 2px;
+      background-color: $grey-dd;
+      position: absolute;
+    }
+    &::before {
+      top: -1rem;
+    }
+    &::after {
+      top: 1rem;
+    }
+  }
+  &__toggle:hover &__icon {
+    &::before {
+      transform: translateY(-2px);
+    }
+    &::after {
+      transform: translateY(2px);
+    }
+  }
+  &__bg {
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    background-image: radial-gradient($color-pl, $color-pd);
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    z-index: 21;
+    transition: $transition-m;
+    @include responsive(1200) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+  }
+  &__nav {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 23;
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.27);
+  }
+  &__list {
+    text-align: center;
+    list-style: none;
+    @include positionCenter;
+  }
+  &__item {
+  }
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      display: inline-block;
+      padding: $space16 $space24;
+      background: linear-gradient(
+          110deg,
+          transparent 0%,
+          transparent 50%,
+          $grey-ll 50%
+        )
+        0%/220% no-repeat; // position/size
+      border: none;
+      color: $grey-ll;
+      font-size: $size36;
+      font-weight: 300;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      cursor: pointer;
+      outline: 2px dashed transparent;
+      transition: $transition-s;
+    }
+    &:hover {
+      background-position: 100%;
+      color: $color-pr;
+      transform: translateX(-4px);
+    }
+    &:active,
+    &:focus {
+      outline: 2px dashed $grey-dd;
+      outline-offset: 2px;
+    }
+  }
+  &__checkbox:checked ~ &__nav {
+    transform: translate(0);
+    opacity: 1;
+  }
+  &__checkbox:checked ~ &__bg {
+    transform: scale(100);
+  }
+  &__checkbox:checked ~ &__toggle &__icon {
+    width: 0;
+    &::before {
+      transform: translateY(1rem) rotate(45deg);
+    }
+    &::after {
+      transform: translateY(-1rem) rotate(-45deg);
+    }
+  }
+}

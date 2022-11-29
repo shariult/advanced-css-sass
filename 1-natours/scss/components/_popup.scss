@@ -1,0 +1,78 @@
+// ======= Imports ======= //
+
+@use "../abstracts/" as *;
+
+// ======= Codes ======= //
+
+.popup {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($black, 0.8);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 31;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition-s;
+  &__content {
+    display: table;
+    width: 75%;
+    background-color: $grey-ll;
+    box-shadow: $shadow-l;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: $transition-m;
+    @include positionCenter;
+    @include responsive(800) {
+      width: 100%;
+    }
+  }
+  &__aside {
+    display: table-cell;
+    width: 30%;
+  }
+  &__img {
+    display: inline-block;
+    width: 100%;
+  }
+  &__main {
+    display: table-cell;
+    padding: $space16 $space48;
+    vertical-align: middle;
+  }
+  &__text {
+    column-count: 2;
+    column-gap: $space48;
+    column-rule: 1px dashed $grey-dl;
+    @include responsive(800) {
+      column-count: 1;
+    }
+  }
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &,
+    &:link,
+    &:visited {
+      display: inline-block;
+      color: $grey-dd;
+      font-size: $space32;
+      text-decoration: none;
+      line-height: 1;
+      position: absolute;
+      top: $space48;
+      right: $space48;
+      transition: $transition-s;
+    }
+    &:hover {
+      color: $color-pr;
+    }
+  }
+}
